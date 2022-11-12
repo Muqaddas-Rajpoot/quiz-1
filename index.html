@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    <a href="home.html">Quiz  Question 2</a>
+    <a href="quizq3.html">Quiz  Question 3</a>
+    <h1>Guess a Number</h1>
+    <p>You have seven attempts to guess a number between (-50 ,50)</p>
+    <label>Enter a number</label>
+    <input type="number" id="guess">
+    <h4 id ="hint"></h4>
+    <button id="check"  onclick="guessnumber()">Check</button>
+
+    
+    <script>
+        let attempt=0;
+        function randomNumber(min, max) { 
+            return Math.floor(Math.random() * (max - min) + min);}
+            let randomlynumber=randomNumber(-50,50) ; //x is randomly generated number
+            console.log(randomlynumber);
+
+      function guessnumber(){  
+        if(attempt<7)  {
+
+         let guessnumber=document.getElementById("guess").value; //y is guess number by user
+        console.log(guessnumber);
+        if(guessnumber>randomlynumber)
+        document.getElementById("hint").innerHTML=("number you entered is greater than generated number")
+      
+      else if (guessnumber<randomlynumber){
+        document.getElementById("hint").innerHTML=("number you entered is less than generated number") 
+      }
+      else{
+        document.getElementById("hint").innerHTML=(" CONGRATULATIONS!number matched ") 
+      }
+      
+    }
+    else{
+        document.getElementById("hint").innerHTML=("You have tried 7 times no more tries left") 
+    }
+    attempt++;
+      }
+
+        </script>
+</body>
+</html>
